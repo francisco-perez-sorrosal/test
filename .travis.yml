@@ -4,6 +4,10 @@ notifications:
   email:
     - fperezsorrosal@gmail.com
 
+env:
+  global:
+    secure: wMMqrZwAZZmznu9zbJRZBCv7o/lZvwT6bdsVRejUeg1m2A9rYwfXGboBnIOsVEYLRJmgBlsfs064utohfKKvgb9j3Ye4+sgmovjy1q96xxH4awZX5L1p9oBSF7NcQQnM+TzQhCAFrRhHpbcBLYJxJTLDt8zrbfEFk34ED2ZSUAB9pDQm2mN1tTTtQYqEwLcB5fFGePtDscfrQ/P6y8zfvj3QE510y0I8j07rf1gotOBkW8snMifCHg5cR3Luz2HGt9OFOCRKdgfT6azghAQJVDV9ZgMQGkcIQ1dLCuLdzKu+57i6tEAXTfRyrvEkAtnc1S8noOnAHFb1yUV3HqFUKSts3PYBK0t9FlC5voJkK2x5nxvkGS3SjoV/OlMVY12fS/xyxHEXmSxORsrMN3l1PCU6wGqdwjQfpY/Y/SGeobp5NUjXFvQS6yqFGxS7kWJEpzyfg6PDKQBHp9vcQbPAM8N/hKgfGbFb1lfvVSpAwfZiER1XH2MCc7sRWr96w42N8uNgcodTMQmhMHfGQk+Zsxu+cCqhU0Lp6MgFDqqr1nlLnIiioY6e0EFnNCBSlJ+1dQZqyMrOQ8oBXcLCOtdRracmc4P2fgcik803BJEsWt8ZAfH13QTk3+VpCzgLzShIxEsYJqh7lxTj0SgAPB/tuvkD6SM96DWf7o5Oz/b/coE=
+
 jdk:
   - oraclejdk8
 
@@ -16,8 +20,9 @@ before_script:
   - umask 022
   - git config --global user.email "fperezsorrosal@gmail.com"
   - git config --global user.name "Francisco Perez-Sorrosal"
+  - echo ${GH_TOKEN}
   - git remote rm origin
-  - git remote add origin https://francisco-perez-sorrosal@github.com/francisco-perez-sorrosal/test.git
+  - git remote add origin https://francisco-perez-sorrosal:${GH_TOKEN}@github.com/francisco-perez-sorrosal/test.git
   - git checkout master
   - git remote -v
 
