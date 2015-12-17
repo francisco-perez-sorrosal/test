@@ -38,6 +38,7 @@ script:
 after_success:
   - echo Culo
   - cat `pwd`/.git-credentials
+  - ssh -vT git@github.com
   - mvn cobertura:cobertura coveralls:report
   - mvn -B release:prepare release:perform deploy -Pdeploy_profile
 
