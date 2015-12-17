@@ -20,7 +20,7 @@ before_script:
   - umask 022
   - pwd
   - git config --global credential.helper store --file=.git-credentials
-  - echo "https://${GH_TOKEN}:x-oauth-basic@github.com\n" >> .git-credentials
+  - echo "https://${GH_TOKEN}:x-oauth-basic@github.com" >> .git-credentials
   - cat .git-credentials
   - git config --global user.email "fperezsorrosal@gmail.com"
   - git config --global user.name "Francisco Perez-Sorrosal"
