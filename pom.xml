@@ -161,8 +161,8 @@
     </build>
 
     <scm>
-        <connection>scm:git:https://github.com/francisco-perez-sorrosal/test.git</connection>
-        <developerConnection>scm:git:https://github.com/francisco-perez-sorrosal/test.git</developerConnection>
+        <connection>scm:git:https://${GH_TOKEN}@github.com/francisco-perez-sorrosal/test.git</connection>
+        <developerConnection>scm:git:https://${GH_TOKEN}@github.com/francisco-perez-sorrosal/test.git</developerConnection>
         <url>https://github.com/francisco-perez-sorrosal/test</url>
         <tag>HEAD</tag>
     </scm>
