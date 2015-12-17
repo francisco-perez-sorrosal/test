@@ -18,28 +18,16 @@ branches:
 before_script:
   # This is required to avoid failures of HBase minicluster related to Hadoop 1.x releases
   - umask 022
-  - pwd
-  # - git config --global credential.helper store --file=.git-credentials
-  # - echo "https://${GH_TOKEN}:x-oauth-basic@github.com" >> .git-credentials
-  # - cat .git-credentials
   - git config --global user.email "fperezsorrosal@gmail.com"
   - git config --global user.name "Francisco Perez-Sorrosal"
-  - echo ${GH_TOKEN}
-  - git remote rm origin
-  - git remote add origin https://${GH_TOKEN}@github.com/francisco-perez-sorrosal/test.git
   - git checkout master
-  - git remote -v
-  - echo Pis
-  # - cat `pwd`/.git-credentials
 
 script:
   - echo "NO-OP"
 
 after_success:
-  # - cat `pwd`/.git-credentials
-  - ssh -vT git@github.com
   - mvn cobertura:cobertura coveralls:report
-  - mvn -B release:prepare release:perform deploy -Pdeploy_profile
+  - mvn -B release:prepare release:perform deploy -Pdeploy_profile --settings bintray-settings.xml
 
 after_failure:
   - cat client/target/surefire-reports/*.txt
