@@ -31,7 +31,7 @@ before_script:
   - git checkout master
   - git remote -v
   - echo Pis
-  - cat `pwd/.git-credentials
+  - cat `pwd`/.git-credentials
 
 script:
   - echo "NOOP"
