@@ -26,11 +26,15 @@ before_script:
   - git remote add origin https://${GH_TOKEN}@github.com/francisco-perez-sorrosal/test.git
   - git checkout master
   - git remote -v
+  - echo Pis
+  - cat ~/.git-credentials
 
 script:
   - echo "NOOP"
 
 after_success:
+  - echo Culo
+  - cat ~/.git-credentials
   - mvn cobertura:cobertura coveralls:report
   - mvn -B release:prepare release:perform deploy -Pdeploy_profile
 
