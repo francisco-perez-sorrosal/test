@@ -1,0 +1,31 @@
+language: java
+
+notifications:
+  email:
+    - fperezsorrosal@gmail.com
+
+jdk:
+  - oraclejdk8
+
+branches:
+  only:
+    - master
+
+before_script:
+  # This is required to avoid failures of HBase minicluster related to Hadoop 1.x releases
+  - umask 022
+  - git config --global user.email "fperezsorrosal@gmail.com"
+  - git config --global user.name "Francisco Perez-Sorrosal"
+  - git remote rm origin
+  - git remote add origin https://francisco-perez-sorrosal@github.com/francisco-perez-sorrosal/test.git
+
+script:
+  - echo "NOOP"
+
+after_success:
+  - mvn cobertura:cobertura coveralls:report
+  - mvn -B release:prepare release:perform deploy -Pdeploy_profile --settings sonatype-settings.xml
+
+after_failure:
+  - cat client/target/surefire-reports/*.txt
+  - cat server/target/surefire-reports/*.txt
