@@ -18,7 +18,6 @@ branches:
 before_script:
   # This is required to avoid failures of HBase minicluster related to Hadoop 1.x releases
   - umask 022
-  - cat ~/.ssh/id_rsa
   - git config --global user.email "fperezsorrosal@gmail.com"
   - git config --global user.name "Francisco Perez-Sorrosal"
   - echo ${GH_TOKEN}
