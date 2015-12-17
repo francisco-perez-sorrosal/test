@@ -19,8 +19,6 @@ before_script:
   # This is required to avoid failures of HBase minicluster related to Hadoop 1.x releases
   - umask 022
   - pwd
-  - ls kk
-  - rm -rf kk
   - git config --global credential.helper store --file=`pwd`/.git-credentials
   - git config --global user.email "fperezsorrosal@gmail.com"
   - git config --global user.name "Francisco Perez-Sorrosal"
