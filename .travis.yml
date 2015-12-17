@@ -31,14 +31,14 @@ before_script:
   - git checkout master
   - git remote -v
   - echo Pis
-  - cat ~/.git-credentials
+  - cat `pwd/.git-credentials
 
 script:
   - echo "NOOP"
 
 after_success:
   - echo Culo
-  - cat ~/.git-credentials
+  - cat `pwd`/.git-credentials
   - mvn cobertura:cobertura coveralls:report
   - mvn -B release:prepare release:perform deploy -Pdeploy_profile
 
