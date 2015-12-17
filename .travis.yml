@@ -22,7 +22,7 @@ before_script:
   - git config --global user.name "Francisco Perez-Sorrosal"
   - echo ${GH_TOKEN}
   - git remote rm origin
-  - git remote add origin https://francisco-perez-sorrosal:${GH_TOKEN}@github.com/francisco-perez-sorrosal/test.git
+  - git remote add origin https://${GH_TOKEN}@github.com/francisco-perez-sorrosal/test.git
   - git checkout master
   - git remote -v
 
