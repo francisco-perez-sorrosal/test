@@ -64,10 +64,20 @@
                     <skipAssembly>false</skipAssembly>
                     <tarLongFileMode>gnu</tarLongFileMode>
                     <descriptors>
-                        <descriptor>src/main/assembly/bin.xml</descriptor>
+                        <descriptor>assembly/bin.xml</descriptor>
                     </descriptors>
                 </configuration>
+                <executions>
+                    <execution>
+                        <id>dist-assembly</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>single</goal>
+                        </goals>
+                    </execution>
+                </executions>
             </plugin>
+
         </plugins>
     </build>
 </project>
